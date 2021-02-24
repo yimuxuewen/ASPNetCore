@@ -1,0 +1,39 @@
+﻿@page
+@using RazorPageTest.Models
+@using RazorPageTest.Services
+
+
+@inject IDepartmentService departmentService
+<div class="row">
+    <div class="col-md-10 offset-md-2">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Employee</th>
+                <th>操作</th>
+            </tr>
+            @Html.DisplayFor(x=>x.Departments)
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5 offset-2">
+        @await Component.InvokeAsync("CompanySummary", new { title = "部门列表页汇总" })
+        <vc:Company-Summary title="部门信息汇总"></vc:Company-Summary>
+    </div>
+    <div class="col-md-4">
+        <a asp-page="Department/AddDepartment">Add</a>
+    </div>
+</div>
+@functions
+{
+    public IEnumerable<RazorPageTest.Models.Department> Departments { get; set; }
+    public async Task OnGetAsync()
+    {
+        //int j = 0;
+        //int i=90/j;
+        Departments = await departmentService.GetAll();
+    }
+}

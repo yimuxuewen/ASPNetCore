@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcDemo.Protos";
+
+package API;
+
+service Departments{
+  rpc GetAllDepartments (GetAllDepartmentsRequest) returns (GetAllDepartmentResponse) {}
+  rpc AddDepartment (AddDepartmentRequest) returns (AddDepartmentResoponse) {}
+}
+message GetAllDepartmentsRequest{}
+
+message GetAllDepartmentResponse{
+	repeated Department departments=1;
+}
+
+message Department{
+	int32 id=1;
+	string name=2;
+	string location=3;
+	int32 employeeCount=4;
+}
+
+message AddDepartmentRequest{
+	Department department=1;
+}
+
+message AddDepartmentResoponse{
+	Department department=1;
+}
+
+service Employees{
+	rpc GetEmployeeesById(GetEmployeeesByIdRequest) returns (GetEmployeeesByIdResponse){}
+	rpc AddEmployee(AddEmployeeRequest) returns (AddEmployeeResponse){} 
+	rpc FireEmployee(FireEmployeeRequest) returns (FireEmployeeResponse){} 
+}
+
+message GetEmployeeesByIdRequest{
+	int32 departmentId=1;
+}
+
+message GetEmployeeesByIdResponse{
+	repeated Employee employee=1;
+}
+
+message Employee{
+	int32 Id=1;
+	int32 DepartmentId=2;
+	string FirstName=3;
+	string LastName=4;
+	Gender gender=5;
+	bool Fired=6;
+}
+
+enum Gender
+{
+	FEMALE=0;
+	MALE=1;
+}
+
+message AddEmployeeRequest{
+	Employee employee=1;
+}
+
+message AddEmployeeResponse{
+	Employee employee=1;
+}
+
+message	FireEmployeeRequest{
+	int32 id=1;
+}
+
+message	FireEmployeeResponse{
+	Employee employee=1;
+}

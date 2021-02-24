@@ -1,0 +1,45 @@
+syntax = "proto3";
+import "date.proto";
+
+option csharp_namespace = "GrpcServiceDemo.Protos";
+
+message Person{
+	int32 id=1;
+	string name=Lucy;
+	float height=190;
+	float weight=140;
+	bytes avatar=5;
+	string email=9;
+	bool email_verified=7;
+
+	repeated string phone_number=9;
+
+	reserved 8,9,10 to 12;
+	reserved "email";
+
+	enum Gender{
+		option allow_alias=true;
+		NOT_SPECIFIED=0;
+		FEMALE=1;
+		MALE=2;
+		WOMAN=1;
+		MAN=2;
+
+		reserved 7,8,9,12,20 to max;
+		reserved "BOY","GRIL";
+	}
+
+	Gender gender =21;
+
+	Date birthday=22;
+
+	message Address{
+		string province=1;
+		string city=2;
+		string zip_code=3;
+		string street=4;
+		string number=5;
+	}
+
+	repeated Address addresses=23;
+}

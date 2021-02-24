@@ -1,0 +1,33 @@
+﻿@page "/Error/{statuscode}"
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Diagnostics;
+@using GrpcClientDemo.Models;
+@inject HttpContext httpContext;
+
+<h3>@errorInfos.ErrorMessage.</h3>
+<h3>@errorInfos.BasePath</h3>
+<h3>@errorInfos.Path.</h3>
+<h3>@errorInfos.QueryStr.</h3>
+
+@code {
+    [Parameter]
+    public string statuscode { get; set; }
+
+    public ErrorInfos errorInfos { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var statusCodeResult = httpContext.Features.Get<IStatusCodeReExecuteFeature>();
+        switch (statuscode)
+        {
+            case "404":
+                errorInfos.ErrorMessage = "抱歉，您锁访问的页面不存在！";
+                errorInfos.Path = statusCodeResult.OriginalPath;
+                errorInfos.BasePath = statusCodeResult.OriginalPathBase;
+                errorInfos.QueryStr = statusCodeResult.OriginalQueryString;
+                break;
+            default:
+                break;
+        }
+    }
+}

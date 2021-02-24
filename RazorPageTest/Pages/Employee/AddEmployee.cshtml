@@ -1,0 +1,36 @@
+﻿@page "{departmentId:int}"
+@using RazorPageTest.Models
+@model RazorPageTest.Pages.Employee.AddEmployeeModel
+
+<form method="post">
+    @*<input type="hidden" asp-for="EmployeeModel.DepartmentId" />*@
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="EmployeeModel.FirstName"></label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="EmployeeModel.FirstName" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="EmployeeModel.LastName"></label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="EmployeeModel.LastName" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="EmployeeModel.Gender"></label>
+        </div>
+        <div class="col-md-6">
+            <select class="form-control" asp-for="EmployeeModel.Gender" asp-items="Html.GetEnumSelectList<Gender>()"></select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+</form>

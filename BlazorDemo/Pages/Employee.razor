@@ -1,0 +1,33 @@
+﻿@page "/employee/{DepartmentId}"
+@inherits EmployeeViewMode
+
+@if (employees == null)
+{
+    <p><em>加载中</em></p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-10 offset-md-2">
+            <table class="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Is Fired</th>
+                    <th>操作</th>
+                </tr>
+                @foreach (var item in employees)
+                {
+                    <EmployeeItem EmployeeMode="@item"></EmployeeItem>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 offset-md-2">
+            <a href="add-employee/@DepartmentId">Employees</a>
+        </div>
+    </div>
+
+}

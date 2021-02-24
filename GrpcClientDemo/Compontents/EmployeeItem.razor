@@ -1,0 +1,25 @@
+﻿@inject IEmployeeService employeeService
+<tr>
+    <td>@EmployeeMode.FirstName</td>
+    <td>@EmployeeMode.LastName</td>
+    <td>@EmployeeMode.Gender</td>
+    <td>@(EmployeeMode.Fired ? "是" : "")</td>
+    <td>
+        @if (!EmployeeMode.Fired)
+        {
+            <a href="javascript:void(0)" @onclick="OnHandlerClick">
+                Fire
+            </a>
+        }
+    </td>
+</tr>
+
+@code{
+    [Parameter]
+    public GrpcDemo.Protos.Employee EmployeeMode { get; set; }
+
+    private async Task OnHandlerClick()
+    {
+        EmployeeMode = await employeeService.Fire(EmployeeMode.Id);
+    }
+}

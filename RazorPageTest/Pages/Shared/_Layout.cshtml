@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*" asp-href-exclude="lib/bootstrap/dist/css/bootstrap.min.css" />
+    </environment>
+
+    <environment exclude="Development">
+        <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    </environment>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-2">
+            <img asp-append-versio="true" alt="Logo" src="/images/Logo.ico" style="height:60px;" />
+        </div>
+        <div class="col-md-10">
+            <span class="h2">@ViewBag.Title</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

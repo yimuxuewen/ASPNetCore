@@ -1,0 +1,35 @@
+﻿@page
+@using RazorPageTest.Models
+@model RazorPageTest.Pages.Department.AddDepartmentModel
+
+<form asp-action="Add">
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="Departmentmodel.Name"></label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="Departmentmodel.Name" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="Departmentmodel.Location"></label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="Departmentmodel.Location" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <label asp-for="Departmentmodel.EmployeeCount"></label>
+        </div>
+        <div class="col-md-6">
+            <input class="form-control" asp-for="Departmentmodel.EmployeeCount" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-2 offset-md-2">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+</form>
