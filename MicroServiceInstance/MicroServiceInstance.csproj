@@ -10,8 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
-    <ProjectReference Include="..\RazorPageTest\MicroService.IUserService\MicroService.IService.csproj" />
-    <ProjectReference Include="..\RazorPageTest\MicroService.UserService\MicroService.Service.csproj" />
+    <ProjectReference Include="..\MicroService.IUserService\MicroService.IService.csproj" />
+    <ProjectReference Include="..\MicroService.UserService\MicroService.Service.csproj" />
   </ItemGroup>
 
 

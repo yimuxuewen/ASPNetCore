@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MicroService.Model\MicroService.Model.csproj" />
+    <ProjectReference Include="..\MicroService.Model\MicroService.Model.csproj" />
   </ItemGroup>
 
 </Project>

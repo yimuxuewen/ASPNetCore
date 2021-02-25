@@ -136,7 +136,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\..\GrpcDemo\GrpcDemo\Protos\grpcapi.proto" GrpcServices="Client" />
+    <Protobuf Include="..\GrpcDemo\Protos\grpcapi.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>
